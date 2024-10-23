@@ -8,7 +8,7 @@ ResumeX is a web-based application designed to assist users in creating, analyzi
 
 ## **Features**  
 1. **Resume Analysis:**  
-   - Upload your resume and receive detailed insights into key skills, projects, and formatting improvements.  
+   - Upload your resume and receive detailed insights into personalized interview question, key skills, projects, and formatting improvements.  
 
 2. **Cover Letter Generator:**  
    - Generate a personalized cover letter based on your resume and a given job description.  
@@ -42,5 +42,41 @@ ResumeX is a web-based application designed to assist users in creating, analyzi
 ```bash
 git clone https://github.com/waleedbahakim/resumex.git
 cd resumex
+```
+
+### **Frontend Setup**
+```bash
+# Navigate to the frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+### **Backend Setup**
+```bash
+# Navigate to the backend directory
+cd backend
+
+# Create a virtual environment 
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install required dependencies
+pip install -r requirements.txt
+
+# Set your OpenAI API key
+export OPENAI_API_KEY='your-api-key'  # On Windows: set OPENAI_API_KEY='your-api-key'
+
+# Run the Flask server
+python app.py
+```
+
+---
+
+
 
 
