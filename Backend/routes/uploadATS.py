@@ -45,7 +45,7 @@ def init_app(app):
             4.
             5.
             """  
-            client = openai.Client(api_key="sk-zgUUHFTFLPNIAYgEYvd1T8lsPBIaGDOzfGRk98FF4LT3BlbkFJawV5LuObeHRZbfM0HYqKuRehXvto7ZryS1oZkuiVsA")
+            client = openai.Client(api_key="XXXX(Add Your OpenAI Api Key)")
   
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo-1106",
