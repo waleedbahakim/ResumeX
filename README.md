@@ -42,3 +42,48 @@ ResumeX is a web-based application designed to assist users in creating, analyzi
 ```bash
 git clone https://github.com/waleedbahakim/resumex.git
 cd resumex
+
+
+### **FrontEnd Setup** 
+# Navigate to the frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+
+### **Ba# Navigate to the backend directory
+cd backend
+
+# Create a virtual environment 
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install required dependencies
+pip install -r requirements.txt
+
+# Set your OpenAI API key
+export OPENAI_API_KEY='your-api-key'  # On Windows: set OPENAI_API_KEY='your-api-key'
+
+# Run the Flask server
+python app.py
+
+## **Usage**  
+1. **Upload Resume:**  
+   - Start by uploading your resume on the Upload Page.  
+
+2. **Analyze Results:**  
+   - View key insights and receive recommendations on how to improve your resume.  
+
+3. **Generate Cover Letter:**  
+   - Provide a job description to create a tailored cover letter.  
+
+4. **Check ATS Score:**  
+   - Upload the resume and job description to get an ATS score.  
+
+5. **Build Resume:**  
+   - Use the Resume Builder to create a resume from scratch.
+
+
