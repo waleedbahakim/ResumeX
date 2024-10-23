@@ -43,6 +43,7 @@ ResumeX is a web-based application designed to assist users in creating, analyzi
 git clone https://github.com/waleedbahakim/resumex.git
 cd resumex
 
+---
 
 ### **FrontEnd Setup** 
 # Navigate to the frontend directory
@@ -54,7 +55,10 @@ npm install
 # Run the development server
 npm run dev
 
-### **Ba# Navigate to the backend directory
+---
+
+### **BackendEnd Setup** 
+# Navigate to the backend directory
 cd backend
 
 # Create a virtual environment 
@@ -69,6 +73,8 @@ export OPENAI_API_KEY='your-api-key'  # On Windows: set OPENAI_API_KEY='your-api
 
 # Run the Flask server
 python app.py
+
+---
 
 ## **Usage**  
 1. **Upload Resume:**  
