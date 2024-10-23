@@ -77,8 +77,12 @@ python app.py
 
 ---
 
-## **Contributors**
-<div style="background-color: #f0f8ff; padding: 10px; border-radius: 5px; margin-bottom: 10px;"> <strong>Waleed Bin Juman Bahakim</strong> </div> <div style="background-color: #e6ffe6; padding: 10px; border-radius: 5px; margin-bottom: 10px;"> <strong>Aatif Ahmed</strong></div> <div style="background-color: #fff3e6; padding: 10px; border-radius: 5px; margin-bottom: 10px;"> <strong>Syed Adnan</strong></div> 
+## **Contributors**  
+
+- 👤 [**Waleed Bahakim**](https://github.com/waleedbahakim)  
+- 👤 [**Aatif Ahmed**](https://github.com/Aatif70)  
+- 👤 [**Syed Adnan**](https://github.com/adnanrazvi9)  
+ 
 
 
 
