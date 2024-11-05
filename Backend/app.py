@@ -12,8 +12,11 @@ hello.init_app(app)
 pdf.init_app(app)
 upload.init_app(app)
 uploadCV.init_app(app)
-uploadATS.init_app(app)
+# uploadATS.init_app(app)
 builder.init_app(app)
+from routes.uploadATS import uploadATS
+
+app.register_blueprint(uploadATS)
 
 if __name__ == "__main__":
     app.run(debug=True)

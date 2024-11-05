@@ -110,18 +110,20 @@ svg {
   margin: 0 auto;
 }
 
-.similarityRing {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 10px;
-}
 
 .animateCircle {
   stroke-dasharray: 565.48; /* Circumference of the circle */
   animation: drawCircle 1s ease-out forwards;
 }
 
+.similarityRing {
+  width: 300px; /* Increased size */
+  height: 300px; /* Increased size */
+  margin-bottom: 10px;
+}
+
 .similarityScore {
   fill: #000; /* Text color */
-  font-size: 30px; /* Adjust size as needed */
+  font-size: 40px; /* Adjusted size for better visibility */
 }
+

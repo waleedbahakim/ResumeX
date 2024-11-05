@@ -1,22 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import Loader from "../Loader/";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faFile } from "@fortawesome/free-solid-svg-icons";
-// import Button from "react-bootstrap/Button";
-// Use <Button> in your component
-
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function ATSChecker({ ATSDataReceived }) {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [text, setText] = useState("");
   const [responseData, setResponseData] = useState(null);
-  // const navigate = useNavigate();
+
   useEffect(() => {
     if (responseData) {
       const circle = document.querySelector(".similarityRing circle");
@@ -52,10 +47,7 @@ function ATSChecker({ ATSDataReceived }) {
 
   const handleSubmit = async (selectedFile, enteredText) => {
     if (selectedFile && enteredText) {
-      console.log("File selected: ", selectedFile.name);
-      console.log("Text entered: ", enteredText);
       try {
-        console.log("1. reached here");
         await parseData(selectedFile, enteredText);
       } catch (error) {
         console.error("Error in handleSubmit:", error);
@@ -71,56 +63,48 @@ function ATSChecker({ ATSDataReceived }) {
     formData.append("file", selectedFile);
     formData.append("text", JD);
     try {
-      console.log("Sending file to the server...");
       const fileData = await fetch("http://localhost:5000/uploadATS", {
         method: "POST",
         body: formData,
       });
 
       if (!fileData.ok) {
-        console.log("2. i came till here");
         throw new Error(`Server responded with ${fileData.status}`);
       }
       const data = await fileData.json();
-      console.log("SimilarityScore ", data);
-      sessionStorage.setItem("ATSData", JSON.stringify(data));
-      console.log("3. i came till here");
       setResponseData(data);
       ATSDataReceived(data);
-      // navigate("/display-data-ats");
     } catch (error) {
       console.error("There was an error fetching the data:", error);
     } finally {
       setLoading(false); // Stop loading
     }
   };
+
   const getRingColor = (similarity) => {
     if (similarity <= 30) return "#FF0000"; // Red
     if (similarity <= 50) return "#FFA500"; // Orange
-    if (similarity <= 70) return "#FFFF00"; // Yellow
-    if (similarity <= 85) return "#00FF00"; // Light Green
+    if (similarity <= 70) return "#ddff00"; // Yellow
+    if (similarity <= 85) return "#FFFF00"; // Light Green
     return "#008000"; // Dark Green
   };
-  // const formatImprovements = (responseData) => {
-  //   if (!responseData || !responseData.improvements) {
-  //     return "";
-  //   }
 
-  //   const lines = responseData.improvements.split(". ");
-  //   if (lines[0].trim() === "Suggested improvements") {
-  //     lines.shift();
-  //   }
+  const getGrade = (similarity) => {
+    if (similarity >= 90) return "A";
+    if (similarity >= 80) return "B";
+    if (similarity >= 70) return "C";
+    if (similarity >= 60) return "D";
+    return "F"; // Below 60
+  };
 
-  //   const formattedImprovements = lines.map(
-  //     (line, index) => `${index + 1}. ${line.trim()}`
-  //   );
-  //   return formattedImprovements.join("\n");
-  // };
   const DisplayData = () => {
     const ringColor = getRingColor(responseData.similarity);
+    const grade = getGrade(responseData.similarity); // Get the grade based on the score
 
     return (
       <div className={styles.similarityContainer}>
+        {/* Score display */}
+        <h3>Your Resume Scored: {grade}</h3> {/* Grade display */}
         <svg className={styles.similarityRing} viewBox="0 0 200 200">
           <circle
             cx="100"
@@ -141,10 +125,10 @@ function ATSChecker({ ATSDataReceived }) {
             {responseData.similarity}%
           </text>
         </svg>
-        {responseData.improvements}
       </div>
     );
   };
+
   return (
     <div className="container">
       <h1>ATS Checker</h1>
@@ -152,7 +136,7 @@ function ATSChecker({ ATSDataReceived }) {
         Make sure your resume fits the job description with our ATS Checker.
       </p>
       <p className={styles.lineTwo}>
-        Simplify your ATS resume optimization with ResumeHub's tool. <br />
+        Simplify your ATS resume optimization with ResumeX's tool. <br />
         Say goodbye to complexity and uncertainty; quickly enhance your resume
         for better job prospects!
       </p>
@@ -201,9 +185,6 @@ function ATSChecker({ ATSDataReceived }) {
               />
             </Col>
           </Row>
-          {/* <div className={styles.formContainer}> */}
-          {/* </div> */}
-
           <div className="d-flex justify-content-center">
             <button
               type="button"
