@@ -88,7 +88,7 @@ function CoverLetterUpload({ DataReceived }) {
         Writing a cover letter has never been so easy.
       </p>
       <p className={styles.lineTwo}>
-        With the ResumeHub cover letter tool, you dont have to worry about the
+        With the ResumeX cover letter tool, you dont have to worry about the
         hard and confusing parts of writing a cover letter. <br /> Now, you can
         quickly make a great cover letter and get the job you dream of!
       </p>

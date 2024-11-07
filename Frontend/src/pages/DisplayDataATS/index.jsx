@@ -3,6 +3,7 @@ export default function DisplayDataATS({ data }) {
     <div>
       {/* <div>Received Data: {JSON.stringify(data)}</div> */}
       <div>{data.similarity}</div>
+      <div>{data.suggestions}</div>
     </div>
   );
 }

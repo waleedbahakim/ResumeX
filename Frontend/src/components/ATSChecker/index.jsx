@@ -103,8 +103,8 @@ function ATSChecker({ ATSDataReceived }) {
 
     return (
       <div className={styles.similarityContainer}>
-        {/* Score display */}
-        <h3>Your Resume Scored: {grade}</h3> {/* Grade display */}
+        <h2>Your Resume Scored: {responseData.similarity}%</h2>{" "}
+        {/* Headline for score */}
         <svg className={styles.similarityRing} viewBox="0 0 200 200">
           <circle
             cx="100"
@@ -125,6 +125,25 @@ function ATSChecker({ ATSDataReceived }) {
             {responseData.similarity}%
           </text>
         </svg>
+        <h3>Suggestions for Improvement:</h3>
+        <ul>
+          {responseData.suggestions &&
+            responseData.suggestions.map((suggestion, index) => (
+              <li key={index}>
+                <strong>{suggestion.type}:</strong> {suggestion.message}
+                {suggestion.keywords && suggestion.keywords.length > 0 && (
+                  <div>
+                    <strong>Keywords:</strong> {suggestion.keywords.join(", ")}
+                  </div>
+                )}
+                {suggestion.examples && (
+                  <div>
+                    <strong>Examples:</strong> {suggestion.examples.join(", ")}
+                  </div>
+                )}
+              </li>
+            ))}
+        </ul>
       </div>
     );
   };
